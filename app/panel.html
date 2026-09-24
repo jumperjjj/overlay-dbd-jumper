@@ -1,5 +1,21 @@
 <!doctype html><html><head><meta charset="utf-8"><title>DBD Control</title><link rel="stylesheet" href="panel.css"></head><body><main><h1>DBD Tournament Control</h1>
-<section class="obsbox"><b>URL para Fonte de Navegador do OBS</b><div class="obsrow"><input id="obsUrl" value="http://127.0.0.1:8765/overlay.html" readonly><button onclick="navigator.clipboard.writeText(obsUrl.value);copyMsg.textContent='Copiado!'">Copiar URL</button></div><small id="copyMsg">Use 1920 × 1080 no OBS.</small></section>
+<section class="obsbox">
+<b>URL para Fonte de Navegador do OBS</b>
+<div class="obsrow">
+<input id="obsUrl" value="http://127.0.0.1:8765/overlay.html" readonly>
+<button onclick="navigator.clipboard.writeText(obsUrl.value);copyMsg.textContent='Copiado!'">Copiar URL</button>
+</div>
+<small id="copyMsg">Use 1920 × 1080 no OBS.</small>
+
+<br><br>
+
+<b>URL do Painel para Dock do OBS</b>
+<div class="obsrow">
+<input id="panelUrl" value="http://127.0.0.1:8765/panel.html" readonly>
+<button onclick="navigator.clipboard.writeText(panelUrl.value);panelCopyMsg.textContent='Copiado!'">Copiar URL</button>
+</div>
+<small id="panelCopyMsg">No OBS: Painéis/Docks → Painéis de navegador personalizados.</small>
+</section>
 <section class="champ"><label>Campeonato <input id="championship" onchange="state.championship=this.value;save()" placeholder="Nome do campeonato"></label></section>
 <section class="teams">
 <div class="team"><input id="teamA" onchange="state.teamA=this.value;save()"><div class="score"><button onclick="score('A',-1)">−</button><b id="scoreA">0</b><button onclick="score('A',1)">+</button></div></div>
