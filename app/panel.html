@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><title>DBD Control</title><link rel="stylesheet" href="panel.css"></head><body><main><h1>DBD Tournament Control</h1>
-<section class="obsbox">
+<details class="fold obsfold"><summary>URLs para OBS e Dock</summary><div class="foldbody obsbox">
 <b>URL para Fonte de Navegador do OBS</b>
 <div class="obsrow">
 <input id="obsUrl" value="http://127.0.0.1:8765/overlay.html" readonly>
@@ -15,7 +15,7 @@
 <button onclick="navigator.clipboard.writeText(panelUrl.value);panelCopyMsg.textContent='Copiado!'">Copiar URL</button>
 </div>
 <small id="panelCopyMsg">No OBS: Painéis/Docks → Painéis de navegador personalizados.</small>
-</section>
+</div></details>
 <section class="champ"><label>Campeonato <input id="championship" onchange="state.championship=this.value;save()" placeholder="Nome do campeonato"></label></section>
 <section class="teams">
 <div class="team"><input id="teamA" onchange="state.teamA=this.value;save()"><div class="score"><button onclick="score('A',-1)">−</button><b id="scoreA">0</b><button onclick="score('A',1)">+</button></div></div>
@@ -32,7 +32,11 @@
 <section class="settings">
 <label>Set atual <select id="currentSet" onchange="state.currentSet=+this.value;save()"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></label>
 
-<details class="fold" open><summary>Aparência e tamanho</summary><div class="foldbody">
+<details class="fold"><summary>Aparência e tamanho</summary><div class="foldbody">
+<div class="fontgrid">
+<label>Fonte dos textos / nomes <select id="textFont" onchange="state.textFont=this.value;save()"><option value="Arial">Arial</option><option value="Arial Black">Arial Black</option><option value="Verdana">Verdana</option><option value="Tahoma">Tahoma</option><option value="Trebuchet MS">Trebuchet MS</option><option value="Georgia">Georgia</option><option value="Times New Roman">Times New Roman</option><option value="Courier New">Courier New</option><option value="Impact">Impact</option><option value="Segoe UI">Segoe UI</option><option value="Calibri">Calibri</option><option value="Cambria">Cambria</option><option value="Consolas">Consolas</option><option value="Franklin Gothic Medium">Franklin Gothic Medium</option><option value="Lucida Sans Unicode">Lucida Sans Unicode</option><option value="Palatino Linotype">Palatino Linotype</option><option value="Century Gothic">Century Gothic</option><option value="Gill Sans">Gill Sans</option><option value="Rockwell">Rockwell</option><option value="Bahnschrift">Bahnschrift</option></select></label>
+<label>Fonte dos números <select id="numberFont" onchange="state.numberFont=this.value;save()"><option value="Arial">Arial</option><option value="Arial Black">Arial Black</option><option value="Verdana">Verdana</option><option value="Tahoma">Tahoma</option><option value="Trebuchet MS">Trebuchet MS</option><option value="Georgia">Georgia</option><option value="Times New Roman">Times New Roman</option><option value="Courier New">Courier New</option><option value="Impact">Impact</option><option value="Segoe UI">Segoe UI</option><option value="Calibri">Calibri</option><option value="Cambria">Cambria</option><option value="Consolas">Consolas</option><option value="Franklin Gothic Medium">Franklin Gothic Medium</option><option value="Lucida Sans Unicode">Lucida Sans Unicode</option><option value="Palatino Linotype">Palatino Linotype</option><option value="Century Gothic">Century Gothic</option><option value="Gill Sans">Gill Sans</option><option value="Rockwell">Rockwell</option><option value="Bahnschrift">Bahnschrift</option></select></label>
+</div>
 <div class="colorgrid"><label>Destaque <input class="color" id="accentColor" type="color" onchange="state.accentColor=this.value;save()"></label><label>Nomes <input class="color" id="nameColor" type="color" onchange="state.nameColor=this.value;save()"></label><label>Números <input class="color" id="numberColor" type="color" onchange="state.numberColor=this.value;save()"></label></div>
 <label>Opacidade <span id="bgOpacityValue"></span><input id="bgOpacity" type="range" min="0" max="100" step="5" oninput="bgOpacityValue.textContent=this.value+'%'" onchange="state.bgOpacity=+this.value;save()"></label>
 <label class="important">Tamanho da HUD <span id="hudScaleValue"></span><input id="hudScale" type="range" min="70" max="140" step="1" oninput="hudScaleValue.textContent=this.value+'%'" onchange="state.hudScale=+this.value;save()"></label>
