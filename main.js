@@ -55,10 +55,16 @@ let state = {
  accentColor: '#ffffff',
  nameColor: '#ffffff',
  numberColor: '#ffffff',
+ teamAColor: '#ffffff',
+ teamBColor: '#ffffff',
 
  /* Fontes v1.1.0 */
  textFont: 'Arial',
  numberFont: 'Arial',
+ teamNameScale: 100,
+ statsScale: 100,
+ champScale: 100,
+ roleIconScale: 100,
 
  bgOpacity: 88,
 
@@ -131,7 +137,7 @@ function normalize(){
  Math.max(
   1,
   Math.min(
-   24,
+   30,
    +state.overlayStyle || 1
   )
  );
@@ -142,7 +148,9 @@ function normalize(){
  for(const k of [
   'accentColor',
   'nameColor',
-  'numberColor'
+  'numberColor',
+  'teamAColor',
+  'teamBColor'
  ]){
 
   state[k] =
@@ -255,6 +263,10 @@ function normalize(){
    +state.shadowSize || 0
   )
  );
+
+ for(const k of ['teamNameScale','statsScale','champScale','roleIconScale']){
+  state[k]=Math.max(60,Math.min(k==='roleIconScale'?180:160,+state[k]||100));
+ }
 
 
  /* POSIÇÕES DOS ELEMENTOS */

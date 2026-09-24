@@ -81,3 +81,26 @@
 .scoreline span {
   font-family:var(--text-font,Arial),Arial,Helvetica,sans-serif;
 }
+
+
+/* V3.1 - tamanhos individuais, cores por time e estilos 25-30 */
+.teamName{font-size:calc(31px * var(--team-name-scale,1))}.style-5 .teamName{font-size:calc(29px * var(--team-name-scale,1))}.style-16 .teamName{font-size:calc(30px * var(--team-name-scale,1))}
+.stats{scale:var(--stats-scale,1);transform-origin:center}.teamA .stats{transform:translate(var(--statsAX,0px),var(--statsAY,0px));transform-origin:center}.teamB .stats{transform:translate(var(--statsBX,0px),var(--statsBY,0px));transform-origin:center}
+.stats{zoom:var(--stats-scale,1)}
+#championship{font-size:calc(16px * var(--champ-scale,1));transform-origin:top center}
+.role img{width:calc(33px * var(--role-icon-scale,1));height:calc(33px * var(--role-icon-scale,1))}
+.teamA .teamName{color:var(--team-a-color,var(--name-color))}.teamB .teamName{color:var(--team-b-color,var(--name-color))}
+.teamA{--side-color:var(--team-a-color,var(--accent))}.teamB{--side-color:var(--team-b-color,var(--accent))}
+
+/* 25 Eclipse: dark crescent plates and luminous center */
+.style-25 #wrap{width:1360px}.style-25 .board{grid-template-columns:1fr 220px 1fr;column-gap:14px}.style-25 .teamBlock{background:radial-gradient(circle at center,rgba(35,38,48,calc(var(--bg-alpha)*.78)),rgba(0,0,0,calc(var(--bg-alpha)*.78)));border:2px solid var(--side-color);border-radius:60px 14px}.style-25 .teamA{border-radius:60px 14px 14px 60px}.style-25 .teamB{border-radius:14px 60px 60px 14px}.style-25 .center{background:rgba(0,0,0,calc(var(--bg-alpha)*.72));border-radius:50%;border:3px solid var(--accent)}.style-25 #championship{clip-path:none;border-radius:20px;border:1px solid var(--accent)}
+/* 26 Terminal: squared tactical HUD */
+.style-26 #wrap{width:1380px}.style-26 .board{grid-template-columns:1fr 190px 1fr;column-gap:20px}.style-26 .teamBlock{background:rgba(3,8,8,calc(var(--bg-alpha)*.74));border:1px solid var(--side-color);box-shadow:inset 0 0 0 4px rgba(0,0,0,.35)}.style-26 .identity{border-bottom:1px dashed var(--side-color)}.style-26 .center{background:rgba(0,0,0,calc(var(--bg-alpha)*.68));border:1px solid var(--accent)}.style-26 .scoreline{font-family:Consolas,monospace}.style-26 #championship{clip-path:none;border:1px dashed var(--accent);background:rgba(0,0,0,.6)}
+/* 27 Crown: championship crest silhouette */
+.style-27 #wrap{width:1320px}.style-27 .board{grid-template-columns:1fr 210px 1fr}.style-27 .teamBlock{background:linear-gradient(180deg,rgba(15,12,8,calc(var(--bg-alpha)*.88)),rgba(0,0,0,calc(var(--bg-alpha)*.5)));border-bottom:4px solid var(--side-color)}.style-27 .teamA{clip-path:polygon(0 0,92% 0,100% 28%,96% 100%,4% 100%)}.style-27 .teamB{clip-path:polygon(8% 0,100% 0,96% 100%,4% 100%,0 28%)}.style-27 .center{background:rgba(0,0,0,calc(var(--bg-alpha)*.82));clip-path:polygon(50% 0,100% 25%,92% 100%,8% 100%,0 25%)}.style-27 #championship{clip-path:polygon(10% 0,90% 0,100% 50%,90% 100%,10% 100%,0 50%);border-top:0;border-bottom:2px solid var(--accent)}
+/* 28 Pulse: separated luminous rails */
+.style-28 #wrap{width:1420px;filter:none}.style-28 .board{grid-template-columns:1fr 240px 1fr;column-gap:34px}.style-28 .teamBlock{background:transparent}.style-28 .identity{background:rgba(0,0,0,calc(var(--bg-alpha)*.38));border-top:3px solid var(--side-color);box-shadow:0 -4px 16px color-mix(in srgb,var(--side-color) 55%,transparent)}.style-28 .stats{background:rgba(0,0,0,calc(var(--bg-alpha)*.28));border-bottom:2px solid var(--side-color)}.style-28 .center{background:transparent}.style-28 .scoreline{border:2px solid var(--accent);border-radius:50%;padding:15px 18px;background:rgba(0,0,0,.45)}.style-28 #championship{background:transparent;clip-path:none;border-top:0;border-bottom:1px solid var(--accent)}
+/* 29 Blade: aggressive asymmetric esports blades */
+.style-29 #wrap{width:1390px}.style-29 .board{grid-template-columns:1fr 210px 1fr;column-gap:6px}.style-29 .teamBlock{background:rgba(5,6,9,calc(var(--bg-alpha)*.78));position:relative}.style-29 .teamA{clip-path:polygon(0 0,100% 0,92% 38%,100% 52%,88% 100%,5% 92%)}.style-29 .teamB{clip-path:polygon(0 0,100% 0,95% 92%,12% 100%,0 52%,8% 38%)}.style-29 .identity{border-top:4px solid var(--side-color)}.style-29 .center{background:var(--accent);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}.style-29 .scoreline{color:#fff}.style-29 #championship{clip-path:none;border-left:8px solid var(--team-a-color);border-right:8px solid var(--team-b-color)}
+/* 30 Horizon: ultra-wide low-profile broadcast strip */
+.style-30 #wrap{width:1500px}.style-30 .board{height:96px;grid-template-columns:1fr 220px 1fr}.style-30 .teamBlock{grid-template-rows:54px 42px;background:rgba(0,0,0,calc(var(--bg-alpha)*.38));border-bottom:2px solid var(--side-color)}.style-30 .center{height:96px;background:rgba(0,0,0,calc(var(--bg-alpha)*.62));border-bottom:2px solid var(--accent)}.style-30 .teamName{font-size:calc(27px * var(--team-name-scale,1))}.style-30 .stat{height:38px}.style-30 .stat img{width:34px;height:34px}.style-30 .scoreline{font-size:52px}.style-30 .lower{top:100px}.style-30 #championship{clip-path:none;min-height:26px;padding:4px 22px;background:rgba(0,0,0,.42)}
