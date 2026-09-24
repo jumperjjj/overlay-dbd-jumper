@@ -55,3 +55,29 @@
 .style-23 #wrap{width:1360px}.style-23 .board{grid-template-columns:1fr 210px 1fr;column-gap:8px}.style-23 .teamBlock{background:linear-gradient(135deg,rgba(5,7,11,calc(var(--bg-alpha)*.8)),rgba(5,7,11,calc(var(--bg-alpha)*.25)));position:relative}.style-23 .teamA{clip-path:polygon(0 12%,8% 0,100% 0,94% 30%,100% 52%,93% 100%,4% 94%)}.style-23 .teamB{clip-path:polygon(0 0,92% 0,100% 12%,96% 94%,7% 100%,0 52%,6% 30%)}.style-23 .center{background:transparent}.style-23 .scoreline{background:rgba(0,0,0,calc(var(--bg-alpha)*.72));padding:10px 24px;clip-path:polygon(12% 0,88% 0,100% 50%,88% 100%,12% 100%,0 50%)}.style-23 #championship{clip-path:none;border-left:5px solid var(--accent);border-right:5px solid var(--accent)}
 /* 24 Airframe: ultra-open spectator-friendly HUD */
 .style-24 #wrap{width:1420px;filter:none}.style-24 .board{grid-template-columns:1fr 250px 1fr;column-gap:36px}.style-24 .teamBlock{background:transparent}.style-24 .identity{background:linear-gradient(90deg,transparent,rgba(0,0,0,calc(var(--bg-alpha)*.28)),transparent);border-bottom:1px solid var(--accent)}.style-24 .stats{background:transparent}.style-24 .center{background:transparent}.style-24 .scoreline{font-size:68px;background:rgba(0,0,0,calc(var(--bg-alpha)*.18));padding:8px 18px}.style-24 #championship{background:transparent;clip-path:none;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent)}.style-24 #set{background:transparent}
+
+/* V3.0 - Fontes personalizaveis */
+
+/* Textos e nomes */
+.teamName,
+.role,
+#championship,
+#set,
+.stat i {
+  font-family:var(--text-font,Arial),Arial,Helvetica,sans-serif;
+}
+
+/* Numeros das estatisticas */
+.stat b {
+  font-family:var(--number-font,Arial),Arial,Helvetica,sans-serif;
+}
+
+/* Placar central */
+.scoreline b {
+  font-family:var(--number-font,Arial),Arial,Helvetica,sans-serif;
+}
+
+/* O "x" entre os placares continua como texto */
+.scoreline span {
+  font-family:var(--text-font,Arial),Arial,Helvetica,sans-serif;
+}
