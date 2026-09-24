@@ -53,7 +53,6 @@ let state = {
  overlayStyle: 1,
 
  accentColor: '#ffffff',
- nameColor: '#ffffff',
  numberColor: '#ffffff',
  teamAColor: '#ffffff',
  teamBColor: '#ffffff',
@@ -65,6 +64,9 @@ let state = {
  statsScale: 100,
  champScale: 100,
  roleIconScale: 100,
+ roleLabelScale: 100,
+ setScale: 100,
+ customPresets: [],
 
  bgOpacity: 88,
 
@@ -123,6 +125,10 @@ const mime = {
 };
 
 
+function stateFile(){return path.join(app.getPath('userData'),'state.json');}
+function saveStateDisk(){try{fs.writeFileSync(stateFile(),JSON.stringify(state,null,2),'utf8');}catch(e){}}
+function loadStateDisk(){try{if(fs.existsSync(stateFile())){const saved=JSON.parse(fs.readFileSync(stateFile(),'utf8'));state={...state,...saved};}}catch(e){}}
+
 /* =========================================================
    NORMALIZAÇÃO DO ESTADO
    ========================================================= */
@@ -147,7 +153,6 @@ function normalize(){
 
  for(const k of [
   'accentColor',
-  'nameColor',
   'numberColor',
   'teamAColor',
   'teamBColor'
@@ -171,6 +176,12 @@ function normalize(){
   state.numberFont = 'Arial';
  }
 
+
+ /* TAMANHOS INDIVIDUAIS */
+ for(const k of ['teamNameScale','statsScale','champScale','roleIconScale','roleLabelScale','setScale']){
+  state[k]=Math.max(60,Math.min(180,+state[k]||100));
+ }
+ state.customPresets=Array.isArray(state.customPresets)?state.customPresets.slice(0,5).filter(p=>p&&typeof p.name==='string'&&p.values&&typeof p.values==='object'):[];
 
  /* OPÇÕES */
 
@@ -434,6 +445,7 @@ function startServer(){
       state = JSON.parse(body);
 
       normalize();
+      saveStateDisk();
 
 
       /* ATUALIZA OVERLAY */
@@ -727,6 +739,8 @@ else{
 
    try{
 
+    loadStateDisk();
+    normalize();
     await startServer();
 
     createWindow();

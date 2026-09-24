@@ -60,9 +60,9 @@ stat('generator',d.gen)+
 stat('hook',d.hook)+
 stat('hook',d.first,true);
 
-const role=(type)=>`
-<img src="assets/${type}.png">
-<span>${type==='killer'?'KILLER':'SURVIVORS'}</span>`;
+const role=(type,side)=>side==='A'
+? `<span>${type==='killer'?'KILLER':'SURVIVORS'}</span><img src="assets/${type}.png">`
+: `<img src="assets/${type}.png"><span>${type==='killer'?'KILLER':'SURVIVORS'}</span>`;
 
 function draw(s){
 
@@ -89,6 +89,8 @@ function draw(s){
  root.style.setProperty('--stats-scale',(s.statsScale??100)/100);
  root.style.setProperty('--champ-scale',(s.champScale??100)/100);
  root.style.setProperty('--role-icon-scale',(s.roleIconScale??100)/100);
+ root.style.setProperty('--role-label-scale',(s.roleLabelScale??100)/100);
+ root.style.setProperty('--set-scale',(s.setScale??100)/100);
 
  root.style.setProperty(
  '--bg-alpha',
@@ -162,10 +164,10 @@ function draw(s){
  s.killerSide==='B'?'B':'A';
 
  roleA.innerHTML=
- role(killer==='A'?'killer':'survivor');
+ role(killer==='A'?'killer':'survivor','A');
 
  roleB.innerHTML=
- role(killer==='B'?'killer':'survivor');
+ role(killer==='B'?'killer':'survivor','B');
 
 }
 
