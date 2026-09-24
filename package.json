@@ -6,7 +6,7 @@
   "author": "jumperjjj",
   "license": "MIT",
   "scripts": {
-    "dist": "electron-builder --win nsis --x64"
+    "dist": "electron-builder --win nsis --x64 --publish never"
   },
   "devDependencies": {
     "electron": "^38.1.2",
