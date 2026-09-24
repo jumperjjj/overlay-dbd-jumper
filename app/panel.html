@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><title>DBD Control</title><link rel="stylesheet" href="panel.css"></head><body><main><h1>DBD Tournament Control</h1>
+<!doctype html><html><head><meta charset="utf-8"><title>DBD Control</title><link rel="stylesheet" href="panel.css"></head><body><main><div class="topbar"><h1>DBD Tournament Control</h1><label class="languagepick"><span>Idioma</span><select id="language" onchange="changeLanguage(this.value)"><option value="pt">Português</option><option value="en">English</option><option value="es">Español</option></select></label></div>
 <details class="fold obsfold"><summary>URLs para OBS e Dock</summary><div class="foldbody obsbox">
 <b>URL para Fonte de Navegador do OBS</b>
 <div class="obsrow">
@@ -20,8 +20,8 @@
 <section class="teams">
 <div class="team"><input id="teamA" onchange="state.teamA=this.value;save()"><div class="score"><button onclick="score('A',-1)">−</button><b id="scoreA">0</b><button onclick="score('A',1)">+</button></div></div>
 <div class="team"><input id="teamB" onchange="state.teamB=this.value;save()"><div class="score"><button onclick="score('B',-1)">−</button><b id="scoreB">0</b><button onclick="score('B',1)">+</button></div></div></section>
-<div class="counters"><div><h3>TIME A</h3><p>Gen <button onclick="n('a','gen',-1)">−</button><b id="agen">0</b><button onclick="n('a','gen',1)">+</button></p><p>Hook <button onclick="n('a','hook',-1)">−</button><b id="ahook">0</b><button onclick="n('a','hook',1)">+</button></p><p>First Hook <button onclick="n('a','first',-1)">−</button><b id="afirst">0</b><button onclick="n('a','first',1)">+</button></p></div>
-<div><h3>TIME B</h3><p>Gen <button onclick="n('b','gen',-1)">−</button><b id="bgen">0</b><button onclick="n('b','gen',1)">+</button></p><p>Hook <button onclick="n('b','hook',-1)">−</button><b id="bhook">0</b><button onclick="n('b','hook',1)">+</button></p><p>First Hook <button onclick="n('b','first',-1)">−</button><b id="bfirst">0</b><button onclick="n('b','first',1)">+</button></p></div></div>
+<div class="counters"><div><h3>TIME A</h3><p>Gerador <button onclick="n('a','gen',-1)">−</button><b id="agen">0</b><button onclick="n('a','gen',1)">+</button></p><p>Gancho <button onclick="n('a','hook',-1)">−</button><b id="ahook">0</b><button onclick="n('a','hook',1)">+</button></p><p>Primeiro Gancho <button onclick="n('a','first',-1)">−</button><b id="afirst">0</b><button onclick="n('a','first',1)">+</button></p></div>
+<div><h3>TIME B</h3><p>Gerador <button onclick="n('b','gen',-1)">−</button><b id="bgen">0</b><button onclick="n('b','gen',1)">+</button></p><p>Gancho <button onclick="n('b','hook',-1)">−</button><b id="bhook">0</b><button onclick="n('b','hook',1)">+</button></p><p>Primeiro Gancho <button onclick="n('b','first',-1)">−</button><b id="bfirst">0</b><button onclick="n('b','first',1)">+</button></p></div></div>
 <div class="setrow"><label>Set atual <select id="currentSet" onchange="state.currentSet=+this.value;save()"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></label></div>
 <button class="reset counter-reset" onclick="state.a={gen:0,hook:0,first:0};state.b={gen:0,hook:0,first:0};save()">Resetar contadores do set</button>
 <section class="quickroles">
@@ -38,7 +38,7 @@
 </div>
 <div class="colorgrid colors2"><label>Destaque <input class="color" id="accentColor" type="color" onchange="requestColorConfirm('accentColor',this.value)"></label><label>Números <input class="color" id="numberColor" type="color" onchange="requestColorConfirm('numberColor',this.value)"></label></div>
 <div class="colorgrid colors2 teamcolors"><label>Cor Time A <input class="color" id="teamAColor" type="color" onchange="requestColorConfirm('teamAColor',this.value)"></label><label>Cor Time B <input class="color" id="teamBColor" type="color" onchange="requestColorConfirm('teamBColor',this.value)"></label></div>
-<div class="presetrow"><label>Preset <select id="appearancePreset" onchange="presetChanged(this.value)"></select></label><button id="savePresetBtn" class="savepreset" onclick="saveCurrentPreset()" hidden>Salvar preset</button></div>
+<div class="presetrow"><label>Preset <select id="appearancePreset" onchange="presetChanged(this.value)"></select></label><button id="savePresetBtn" class="savepreset" onclick="saveCurrentPreset()">Salvar</button><button id="deletePresetBtn" class="deletepreset" onclick="deleteCurrentPreset()">Excluir</button></div>
 <label>Opacidade <span id="bgOpacityValue"></span><input id="bgOpacity" type="range" min="0" max="100" step="5" oninput="bgOpacityValue.textContent=this.value+'%'" onchange="state.bgOpacity=+this.value;markCustom();save()"></label>
 <label class="important">Tamanho da HUD <span id="hudScaleValue"></span><input id="hudScale" type="range" min="70" max="140" step="1" oninput="hudScaleValue.textContent=this.value+'%'" onchange="state.hudScale=+this.value;markCustom();save()"></label>
 <div class="sizegrid">

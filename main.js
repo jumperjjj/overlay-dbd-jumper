@@ -67,6 +67,8 @@ let state = {
  roleLabelScale: 100,
  setScale: 100,
  customPresets: [],
+ customValues: null,
+ language: 'pt',
 
  bgOpacity: 88,
 
@@ -182,6 +184,8 @@ function normalize(){
   state[k]=Math.max(60,Math.min(180,+state[k]||100));
  }
  state.customPresets=Array.isArray(state.customPresets)?state.customPresets.slice(0,5).filter(p=>p&&typeof p.name==='string'&&p.values&&typeof p.values==='object'):[];
+ state.customValues=state.customValues&&typeof state.customValues==='object'?state.customValues:null;
+ state.language=['pt','en','es'].includes(state.language)?state.language:'pt';
 
  /* OPÇÕES */
 
